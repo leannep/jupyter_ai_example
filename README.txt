@@ -35,4 +35,7 @@ curl \
   -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=YOUR_API_KEY' 
 
 
+Examples
   # /generate process 1 billion datapoints from the nyc-tlc dataset using datashader
+
+/generate notebook to visualize NYC taxicab dataset using datashader dask and parquet

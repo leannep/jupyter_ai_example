@@ -5,6 +5,7 @@ ARG GEMINI_API_KEY
 ARG OPENAI_API_KEY
 
 # Set the API key as an environment variable (this is optional, for runtime)
+# This is not secure - find a better way (docker-compose)
 ENV ANTHROPIC_API_KEY=$ANTHROPIC_API_KEY
 ENV GEMINI_API_KEY=$GEMINI_API_KEY
 ENV OPENAI_API_KEY=$OPENAI_API_KEY
