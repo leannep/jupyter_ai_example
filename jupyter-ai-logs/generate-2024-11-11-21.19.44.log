@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/jupyter_ai/chat_handlers/base.py", line 226, in on_message
+    await self.process_message(message)
+  File "/usr/local/lib/python3.11/site-packages/jupyter_ai/chat_handlers/generate.py", line 266, in process_message
+    self.get_llm_chain()
+  File "/usr/local/lib/python3.11/site-packages/jupyter_ai/chat_handlers/base.py", line 392, in get_llm_chain
+    self.create_llm_chain(lm_provider, lm_provider_params)
+  File "/usr/local/lib/python3.11/site-packages/jupyter_ai/chat_handlers/generate.py", line 238, in create_llm_chain
+    llm = provider(**unified_parameters)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/jupyter_ai_magics/providers.py", line 348, in __init__
+    super().__init__(*args, **kwargs, **model_kwargs)
+  File "/usr/local/lib/python3.11/site-packages/langchain_core/load/serializable.py", line 113, in __init__
+    super().__init__(*args, **kwargs)
+  File "/usr/local/lib/python3.11/site-packages/pydantic/v1/main.py", line 339, in __init__
+    values, fields_set, validation_error = validate_model(__pydantic_self__.__class__, data)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pydantic/v1/main.py", line 1100, in validate_model
+    values = validator(cls_, values)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/langchain_anthropic/llms.py", line 105, in validate_environment
+    values["count_tokens"] = values["client"].count_tokens
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Anthropic' object has no attribute 'count_tokens'

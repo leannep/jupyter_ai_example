@@ -1,0 +1,97 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/langchain_core/output_parsers/json.py", line 84, in parse_result
+    return parse_json_markdown(text)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/langchain_core/utils/json.py", line 147, in parse_json_markdown
+    return _parse_json(json_str, parser=parser)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/langchain_core/utils/json.py", line 163, in _parse_json
+    return parser(json_str)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/langchain_core/utils/json.py", line 118, in parse_partial_json
+    return json.loads(s, strict=strict)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/json/__init__.py", line 359, in loads
+    return cls(**kw).decode(s)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/jupyter_ai/chat_handlers/base.py", line 226, in on_message
+    await self.process_message(message)
+  File "/usr/local/lib/python3.11/site-packages/jupyter_ai/chat_handlers/generate.py", line 272, in process_message
+    final_path = await self._generate_notebook(prompt=message.body)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/jupyter_ai/chat_handlers/generate.py", line 247, in _generate_notebook
+    outline = await generate_outline(prompt, llm=self.llm, verbose=True)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/jupyter_ai/chat_handlers/generate.py", line 56, in generate_outline
+    outline = parser.parse(outline)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/langchain_core/output_parsers/pydantic.py", line 82, in parse
+    return super().parse(text)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/langchain_core/output_parsers/json.py", line 98, in parse
+    return self.parse_result([Generation(text=text)])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/langchain_core/output_parsers/pydantic.py", line 71, in parse_result
+    raise e
+  File "/usr/local/lib/python3.11/site-packages/langchain_core/output_parsers/pydantic.py", line 66, in parse_result
+    json_object = super().parse_result(result)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/langchain_core/output_parsers/json.py", line 87, in parse_result
+    raise OutputParserException(msg, llm_output=text) from e
+langchain_core.exceptions.OutputParserException: Invalid json output: Here's a detailed content outline for a Jupyter notebook on creating a pandas DataFrame, formatted as a JSON instance conforming to the given schema:
+
+{
+  "description": "This notebook demonstrates how to create a pandas DataFrame using various methods and data sources.",
+  "sections": [
+    {
+      "title": "Importing Required Libraries",
+      "content": "Import pandas and other necessary libraries for creating DataFrames."
+    },
+    {
+      "title": "Creating a DataFrame from a Dictionary",
+      "content": "Demonstrate how to create a DataFrame using a Python dictionary as the data source."
+    },
+    {
+      "title": "Creating a DataFrame from Lists",
+      "content": "Show how to create a DataFrame using lists of data, including nested lists."
+    },
+    {
+      "title": "Creating a DataFrame from a NumPy Array",
+      "content": "Explain the process of creating a DataFrame from a NumPy array."
+    },
+    {
+      "title": "Creating a DataFrame from CSV Files",
+      "content": "Demonstrate how to read CSV files and create DataFrames from them."
+    },
+    {
+      "title": "Creating a DataFrame from Excel Files",
+      "content": "Show how to read Excel files and create DataFrames from them."
+    },
+    {
+      "title": "Creating a DataFrame from JSON Data",
+      "content": "Explain how to create a DataFrame from JSON-formatted data."
+    },
+    {
+      "title": "Creating an Empty DataFrame",
+      "content": "Demonstrate how to create an empty DataFrame and add data to it later."
+    },
+    {
+      "title": "Adding Columns to a DataFrame",
+      "content": "Show various methods for adding new columns to an existing DataFrame."
+    },
+    {
+      "title": "Adding Rows to a DataFrame",
+      "content": "Explain different approaches to add new rows to an existing DataFrame."
+    }
+  ]
+}

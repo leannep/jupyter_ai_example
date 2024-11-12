@@ -1,0 +1,26 @@
+jupyter 
+jupyterlab
+jupyter_ai[all]
+
+pandas
+holoviews
+datashader
+numpy
+scipy
+coiled 
+dask 
+s3fs 
+pyarrow 
+datashader 
+hvplot 
+holoviews
+bokeh
+
+jupyter_bokeh
+
+langchain-anthropic  # Anthropic models
+#langchain-openai # OpenAI models
+#langchain-google-genai # Google Gemini
+
+
+
